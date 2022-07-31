@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock, Paper, Scissors</title>
+        <script src="./script.js"></script>
+    </head>
+    <body>
+        <script>
+            //Player Choice
+            function playerSelection() {
+                playerPick = prompt("Pick one: Rock, Paper, or Scissors");
+                playerPick2 = playerPick.charAt(0).toUpperCase() + playerPick.slice(1).toLowerCase();
+                return playerPick2;
+            }
+            
+            //Computer Choice
+            function getComputerChoice() {
+                let compPick = Math.floor(Math.random() * 3);
+                if (compPick === 0) {
+                    return "Rock";
+                }
+                else if (compPick === 1) {
+                    return "Paper";
+                }
+                else {
+                    return "Scissors";
+                }
+            }
+
+
+            console.log(playerSelection());
+            console.log(getComputerChoice());
+            
+        </script>
+    </body>
+</html>
