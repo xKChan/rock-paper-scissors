@@ -9,9 +9,18 @@
         <script>
             //Player Choice
             function playerSelection() {
-                playerPick = prompt("Pick one: Rock, Paper, or Scissors");
-                playerPick2 = playerPick.charAt(0).toUpperCase() + playerPick.slice(1).toLowerCase();
-                return playerPick2;
+                playerPick = prompt("Pick one: Rock, Paper, or Scissors").toLowerCase();
+                while (!valid) {
+                    if (playerPick !== "rock" && playerPick !== "paper" && playerPick !== "scissors") {
+                        playerPick = prompt("Select again... Rock, Paper, or Scissors").toLowerCase();
+                    }
+                    else {
+                        valid = true;
+                        playerPick2 = playerPick.charAt(0).toUpperCase() + playerPick.slice(1).toLowerCase();
+                        return playerPick2;
+                    }
+                }
+                // return playerPick2;
             }
             
             //Computer Choice
@@ -62,6 +71,7 @@
 
             let computerSelection = getComputerChoice();
             let userSelection = playerSelection();
+            var valid = false;
 
             console.log(userSelection);
             console.log(computerSelection);
