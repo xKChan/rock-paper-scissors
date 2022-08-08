@@ -9,6 +9,8 @@
         <script>
             //Player Choice
             function playerSelection() {
+                var valid = false;
+
                 playerPick = prompt("Pick one: Rock, Paper, or Scissors").toLowerCase();
                 while (!valid) {
                     if (playerPick !== "rock" && playerPick !== "paper" && playerPick !== "scissors") {
@@ -20,7 +22,6 @@
                         return playerPick2;
                     }
                 }
-                // return playerPick2;
             }
             
             //Computer Choice
@@ -40,6 +41,7 @@
             //Single Round of Rock, Paper, Scissors.  Comparing who wins.
 
             function playRound(userSelection, computerSelection) {
+
                 if (userSelection === computerSelection) {
                     tie = tie + 1;
                     console.log("Player Score: " + win);
@@ -50,7 +52,7 @@
                 }
                 else if (userSelection === "Rock") {
                     if (computerSelection === "Paper") {
-                        win = win + 1;
+                        lose = lose + 1;
                         console.log("Player Score: " + win);
                         console.log("Computer Score: " + lose);
                         console.log("Ties: " + tie);
@@ -58,7 +60,7 @@
                         return;
                     }
                     else {
-                        lose = lose + 1;
+                        win = win + 1;
                         console.log("Player Score: " + win);
                         console.log("Computer Score: " + lose);
                         console.log("Ties: " + tie);
@@ -106,21 +108,37 @@
             }
 
             function game() {
-                for (let i = 0; i < 3; i++) {
-                    playRound(userSelection, computerSelection);
+                var win;
+                var lose;
+                var tie;
+                
+                for (let i = 0; i < 5; i++) {
+                    computerSelection = getComputerChoice();
+                    userSelection = playerSelection();
+                    console.log("You Picked: " + userSelection);
+                    console.log("Computer Picks: " + computerSelection);
+                    playRound(userSelection,computerSelection);
                 }
+                if (win > lose) {
+                        console.log("You Win! Player Score: ") + win (" Computer Score: ") + lose;
+                    }
+                else if (lose > win) {
+                        console.log("You Lose! Player Score: ") + win (" Computer Score: ") + lose;
+                    }
+                else if (lose === win) {
+                        console.log("It's a tie! No one wins.")
+                    }
             }
 
 
             let computerSelection = getComputerChoice();
             let userSelection = playerSelection();
-            var valid = false;
             var win = 0;
             var lose = 0;
             var tie = 0;
 
 
-            // console.log(playRound(userSelection, computerSelection));
+            // playRound(userSelection, computerSelection);
             game();
             
         </script>
