@@ -22,10 +22,39 @@
                 }
             }
 
-            console.log(getComputerChoice());
+            // console.log(getComputerChoice());
 
+            function playRound(userSelection, computerSelection) {
+                if (userSelection === computerSelection) {
+                    return "It's a tie! no one wins!";
+                }
+                else if (userSelection === "Rock" && computerSelection === "Paper") {
+                    return "You lose! Rock losses to Paper";
+                } 
+                else if (userSelection === "Rock" && computerSelection === "Scissors") {
+                    return "You Win! Rock beats Scissors";
+                }
+                else if (userSelection === "Paper" && computerSelection === "Scissors") {
+                    return "You lose! Paper losses to Scissors";
+                } 
+                else if (userSelection === "Paper" && computerSelection === "Rock") {
+                    return "You Win! Paper beats Rock";
+                }
+                else if (userSelection === "Scissors" && computerSelection === "Rock") {
+                    return "You lose! Scissors losses to Rock";
+                } 
+                else if (userSelection === "Scissors" && computerSelection === "Paper") {
+                    return "You Win! Scissors beats Paper";
+                }
+            }
 
+            
 
+            let userSelection = "Scissors";
+            let computerSelection = getComputerChoice();
+            playRound(userSelection,computerSelection);
+            console.log(playRound(userSelection, computerSelection));
+            console.log(computerSelection);
         </script>
     </body>
 </html>
