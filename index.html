@@ -108,9 +108,9 @@
             }
 
             function game() {
-                var win;
-                var lose;
-                var tie;
+                    var win;
+                    var lose;
+                    var tie;
                 
                 for (let i = 0; i < 5; i++) {
                     computerSelection = getComputerChoice();
@@ -118,7 +118,10 @@
                     console.log("You Picked: " + userSelection);
                     console.log("Computer Picks: " + computerSelection);
                     playRound(userSelection,computerSelection);
+
+                    if()
                 }
+
                 if (win > lose) {
                         console.log("You Win! Player Score: ") + win (" Computer Score: ") + lose;
                     }
