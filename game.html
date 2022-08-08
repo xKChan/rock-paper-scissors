@@ -24,7 +24,28 @@
 
             // console.log(getComputerChoice());
 
+
+            //Player Picks
+            function getPlayerChoice() {
+                var valid = false;
+
+                playerPick = prompt("Pick one: Rock, Paper, or Scissors").toLowerCase();
+                while (!valid) {
+                    if (playerPick !== "rock" && playerPick !== "paper" && playerPick !== "scissors") {
+                        playerPick = prompt("Select again... Rock, Paper, or Scissors").toLowerCase();
+                    }
+                    else {
+                        valid = true;
+                        playerPick2 = playerPick.charAt(0).toUpperCase() + playerPick.slice(1).toLowerCase();
+                        return playerPick2;
+                    }
+                }
+            }
+
+            //One Round Game 
             function playRound(userSelection, computerSelection) {
+
+
                 if (userSelection === computerSelection) {
                     return "It's a tie! no one wins!";
                 }
@@ -48,10 +69,11 @@
                 }
             }
 
-            
 
-            let userSelection = "Scissors";
+
+            // let userSelection = "Scissors";
             let computerSelection = getComputerChoice();
+            let userSelection = getPlayerChoice();
             playRound(userSelection,computerSelection);
             console.log(playRound(userSelection, computerSelection));
             console.log(computerSelection);
