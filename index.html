@@ -42,103 +42,49 @@
 
             function playRound(userSelection, computerSelection) {
 
+
                 if (userSelection === computerSelection) {
-                    tie = tie + 1;
-                    console.log("Player Score: " + win);
-                    console.log("Computer Score: " + lose);
-                    console.log("Ties: " + tie);
-                    console.log("It's a tie, no one wins!");
-                    return;
+                    return "It's a tie! no one wins!";
                 }
-                else if (userSelection === "Rock") {
-                    if (computerSelection === "Paper") {
-                        lose = lose + 1;
-                        console.log("Player Score: " + win);
-                        console.log("Computer Score: " + lose);
-                        console.log("Ties: " + tie);
-                        console.log("You lose! Paper beats rock.");
-                        return;
-                    }
-                    else {
-                        win = win + 1;
-                        console.log("Player Score: " + win);
-                        console.log("Computer Score: " + lose);
-                        console.log("Ties: " + tie);
-                        console.log("You Win! Rock beats scissors.");
-                        return;
-                    }
+                else if (userSelection === "Rock" && computerSelection === "Paper") {
+                    return "You lose! Rock losses to Paper";
+                } 
+                else if (userSelection === "Rock" && computerSelection === "Scissors") {
+                    return "You Win! Rock beats Scissors";
                 }
-                else if (userSelection === "Paper") {
-                    if (computerSelection === "Rock") {
-                        win = win + 1;
-                        console.log("Player Score: " + win);
-                        console.log("Computer Score: " + lose);
-                        console.log("Ties: " + tie);
-                        console.log("You Win! Paper beats rock.");
-                        return;
-                    }
-                    else {
-                        lose = lose + 1;
-                        console.log("Player Score: " + win);
-                        console.log("Computer Score: " + lose);
-                        console.log("Ties: " + tie);
-                        console.log("You Lose! Scissors beats Paper.");
-                        return;
-                    }
+                else if (userSelection === "Paper" && computerSelection === "Scissors") {
+                    return "You lose! Paper losses to Scissors";
+                } 
+                else if (userSelection === "Paper" && computerSelection === "Rock") {
+                    return "You Win! Paper beats Rock";
                 }
-                else {
-                        if (computerSelection === "Rock") {
-                        lose = lose + 1;
-                        console.log("Player Score: " + win);
-                        console.log("Computer Score: " + lose);
-                        console.log("Ties: " + tie);
-                        console.log("You Lose! Rock beats scissors.");
-                        return;
-                    }
-                    else {
-                        win = win + 1;
-                        console.log("Player Score: " + win);
-                        console.log("Computer Score: " + lose);
-                        console.log("Ties: " + tie);
-                        console.log("You Win! Scissors beats paper.");
-                        return;
-                    }
+                else if (userSelection === "Scissors" && computerSelection === "Rock") {
+                    return "You lose! Scissors losses to Rock";
+                } 
+                else if (userSelection === "Scissors" && computerSelection === "Paper") {
+                    return "You Win! Scissors beats Paper";
                 }
-                
             }
 
             function game() {
-                    var win;
-                    var lose;
-                    var tie;
+                    // var win;
+                    // var lose;
+                    // var tie;
                 
                 for (let i = 0; i < 5; i++) {
                     computerSelection = getComputerChoice();
                     userSelection = playerSelection();
                     console.log("You Picked: " + userSelection);
                     console.log("Computer Picks: " + computerSelection);
-                    playRound(userSelection,computerSelection);
-
-                    if()
+                    console.log(playRound(userSelection,computerSelection));
                 }
-
-                if (win > lose) {
-                        console.log("You Win! Player Score: ") + win (" Computer Score: ") + lose;
-                    }
-                else if (lose > win) {
-                        console.log("You Lose! Player Score: ") + win (" Computer Score: ") + lose;
-                    }
-                else if (lose === win) {
-                        console.log("It's a tie! No one wins.")
-                    }
             }
-
 
             let computerSelection = getComputerChoice();
             let userSelection = playerSelection();
-            var win = 0;
-            var lose = 0;
-            var tie = 0;
+            // var win = 0;
+            // var lose = 0;
+            // var tie = 0;
 
 
             // playRound(userSelection, computerSelection);
