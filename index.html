@@ -6,12 +6,28 @@
         <script src="./script.js"></script>
     </head>
     <body>
-        <script>
-            
-            //Single Round of Rock, Paper, Scissors.  Comparing who wins.
 
-            function playRound(computerSelection) {
-            
+        <button id="pickRock">Rock</button>
+        <button id="pickPaper">Paper</button>
+        <button id="pickScissors">Scissors</button>
+
+
+        <script>
+            const pickRock = document.querySelector('#pickRock');
+            pickRock.addEventListener('click', () => {
+                console.log(playRound());
+                return;
+            });
+
+            // const pickPaper = document.querySelector('#pickPaper');
+            // pickPaper.addEventListener('click', () => {
+            //     console.log(playRound());
+            //     return;
+            // });
+
+            const pickScissors = document.querySelector('#pickScissors');
+            pickScissors.addEventListener('click', playRound);
+
             //Player Choice
             
             function playerSelection() {
@@ -29,6 +45,20 @@
                     }
                 }
             }
+
+            function buttonPicked() {
+                const pickPaper = document.querySelector('#pickPaper');
+                pickPaper.addEventListener('click', () => {setChoice("Paper")
+            });
+
+                var userChoice;
+                function setChoice(userChoice) {
+                    userChoice = "";
+                }
+                return userChoice;
+                console.log(buttonPicked());
+            }
+
              //Computer Choice
             function getComputerChoice() {
                 let compPick = Math.floor(Math.random() * 3);
@@ -42,10 +72,11 @@
                     return "Scissors";
                 }
             }
-            
 
+           //Single Round of Rock, Paper, Scissors.  Comparing who wins.
 
-                userSelection = playerSelection();
+            function playRound() {             
+                userSelection = buttonPicked();
                 computerSelection = getComputerChoice();
 
                 if (userSelection === computerSelection) {
@@ -76,32 +107,7 @@
                     win = win + 1;
                     return "You Win! Scissors beats Paper";
                 }
-            }
 
-            function game() {
-
-                for (let i = 0; i < 5; i++) {
-                    console.log(playRound());
-                   
-                console.log("Your Score: " + win);
-                console.log("Computer Score: " + lose);
-                console.log("Tie: " + tie);
-                }
-                
-                if (win > lose && win >= tie) {
-                    console.log("Game Over! ")
-                    console.log("You Win! Score is: Player - " + win + "// Computer - " + lose)
-                } 
-
-                else if (lose > win && lose >= tie) {
-                    console.log("Game Over! ")
-                    console.log("You Lose! Score is: Player - " + win + "// Computer - " + lose)
-                } 
-
-                else {
-                    console.log("Game Over! ")
-                    console.log("It's a Tie!, No one wins")
-                }
 
             }
 
@@ -109,8 +115,8 @@
             var win = 0;
             var lose = 0;
             
-            game();
-            
+            console.log(playRound());
+         
         </script>
     </body>
 </html>
